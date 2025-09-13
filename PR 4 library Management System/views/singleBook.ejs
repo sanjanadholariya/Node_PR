@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Details</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <%- include('header') %>
+  <div class="container-fluid mt-4">
+    <div class="row">
+      <div class="col-3">
+        <%- include('sidebar') %>
+      </div>
+      <div class="col-9 d-flex justify-content-center">
+        <div class="card shadow w-75">
+          <div class="card-header text-white fw-bold"
+               style="background: linear-gradient(135deg, #6a11cb, #2575fc);">
+            📖 <%= single.title %>
+          </div>
+          <div class="card-body text-center">
+            <img src="<%= single.image %>" class="img-fluid mb-3 rounded" style="max-height:300px;">
+            <h5>✍️ Author: <%= single.author %></h5>
+            <h6>🔢 ISBN: <%= single.isbn %></h6>
+            <h6>🏷️ Genre: <%= single.genre %></h6>
+            <h6>📦 Total: <%= single.total %></h6>
+            <p class="mt-3">📝 <%= single.description %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

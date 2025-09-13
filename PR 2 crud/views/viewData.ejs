@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>View Data</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<div class="container py-5">
+  <div class="card shadow-lg border-0 rounded-4">
+    <div class="card-body p-5">
+      <h2 class="text-center mb-4 text-primary fw-bold">📑 All Records</h2>
+
+      <table class="table table-bordered table-hover align-middle text-center">
+        <thead style="background: linear-gradient(90deg, #6a11cb, #2575fc); color: #fff;">
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% allData.map((val,index)=>{ %>
+            <tr>
+              <td><%= ++index %></td>
+              <td><%= val.name %></td>
+              <td><%= val.email %></td>
+              <td>
+                <a href="/editData/<%= val._id %>" 
+                   class="btn btn-sm text-white px-3" 
+                   style="background: linear-gradient(90deg, #6a11cb, #2575fc); border: none;">
+                   ✏️ Edit
+                </a>
+                <a href="/deleteData?id=<%= val._id %>" 
+                   class="btn btn-sm text-white px-3 ms-2" 
+                   style="background: linear-gradient(90deg, #6a11cb, #2575fc); border: none;">
+                   🗑 Delete
+                </a>
+              </td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+
+      <div class="text-center mt-4">
+        <a href="/addData" class="btn btn-lg text-white" 
+           style="background: linear-gradient(90deg, #6a11cb, #2575fc); border: none;">
+           ➕ Add More
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
