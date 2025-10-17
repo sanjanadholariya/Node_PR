@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>View Books</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    table {
+      table-layout: fixed;   /* columns ki width fix hogi */
+      width: 100%;
+      font-size: 14px;       /* chhota font taaki fit ho jaye */
+    }
+    th, td {
+      vertical-align: middle !important;
+      text-align: center;
+      white-space: normal !important; /* wrap allow */
+      word-wrap: break-word;
+      word-break: break-word;
+      padding: 6px;   /* thoda compact padding */
+    }
+    td img {
+      border-radius: 4px;
+      max-width: 45px;  /* image chhoti kar di */
+    }
+    /* Sorting icons */
+    .sortable {
+      position: relative;
+      cursor: pointer;
+      padding-right: 18px !important;
+    }
+    .sortable::after {
+      content: "⇅";
+      position: absolute;
+      right: 5px;
+      font-size: 11px;
+      opacity: 0.6;
+    }
+
+    /* Actions buttons uniform */
+    .action-btns a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      padding: 0;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+    .col-10 {
+  padding-left: 38px !important;  
+}
+
+  </style>
+</head>
+<body>
+  <%- include('header') %>
+  <div class="container-fluid mt-4">
+    <div class="row">
+      <div class="col-2">
+        <%- include('sidebar') %>
+      </div>
+      <div class="col-10 p-3">
+        <div class="card shadow p-2">
+          <h3 class="fw-bold text-primary mb-3">📚 All Books</h3>
+
+          <table class="table table-hover table-bordered align-middle">
+            <thead class="table-dark">
+              <tr>
+                <th style="width: 60px;">Image</th>
+                <th class="sortable" style="width: 100px;">Title</th>
+                <th class="sortable" style="width: 100px;">Author</th>
+                <th class="sortable" style="width: 120px;">ISBN</th>
+                <th class="sortable" style="width: 140px;">Genre</th>
+                <th class="sortable" style="width: 60px;">Total</th>
+                <th style="width: 200px;">Description</th>
+                <th style="width: 100px;">⚙️ Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% allBook.map((b)=>{ %>
+              <tr>
+                <td><img src="<%= b.image %>" class="img-thumbnail"></td>
+                <td><%= b.title %></td>
+                <td><%= b.author %></td>
+                <td><%= b.isbn %></td>
+                <td><%= b.genre %></td>
+                <td><%= b.total %></td>
+                <td><%= b.description %></td>
+                <td>
+                  <div class="d-flex justify-content-center gap-2 action-btns">
+                    <a href="/editBook/<%=b.id%>" class="btn btn-warning">✏️</a>
+                    <a href="/deleteBook/<%=b.id%>" class="btn btn-danger">🗑️</a>
+                    <a href="/singleBook/<%=b.id%>" class="btn btn-info">👁️</a>
+                  </div>
+                </td>
+              </tr>
+              <% }) %>
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

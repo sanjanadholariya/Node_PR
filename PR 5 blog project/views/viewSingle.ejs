@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%=single.title%></title>
+  <link rel="stylesheet" href="/css/viewMore.css">
+</head>
+<body>
+
+  <header class="header">
+    <h1 class="logo">My Blog</h1>
+    <a href="/" class="btn">← Back</a>
+  </header>
+
+  <div class="single-blog">
+    <img src="<%=single.image%>" class="single-img">
+    <h1><%=single.title%></h1>
+    <ul class="tags">
+      <% single.type.map((t)=>{ %>
+        <li><%=t%></li>
+      <% }) %>
+    </ul>
+    <p class="desc"><%=single.description%></p>
+  </div>
+
+</body>
+</html>

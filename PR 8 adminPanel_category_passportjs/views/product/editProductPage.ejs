@@ -1,0 +1,199 @@
+<%-include('../header')%>
+    <!-- ============================================================== -->
+    <!-- Page wrapper  -->
+    <!-- ============================================================== -->
+    <div class="page-wrapper">
+        <!-- ============================================================== -->
+        <!-- Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <div class="page-breadcrumb">
+            <div class="row">
+                <div class="col-12 d-flex no-block align-items-center">
+                    <h4 class="page-title">Add Product</h4>
+                    <div class="ml-auto text-right">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/admin">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Library</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Container fluid  -->
+        <!-- ============================================================== -->
+        <div class="container-fluid">
+            <!-- ============================================================== -->
+            <!-- Start Page Content -->
+            <!-- ============================================================== -->
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <form class="form-horizontal" action="/product/editProduct/<%=singleProduct._id%>" method="post" enctype="multipart/form-data">
+                            <div class="card-body">
+
+                                <div class="form-group row">
+                                    <label for="fname" class="col-sm-3 text-right control-label col-form-label">Product Name</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" name="productName"
+                                            placeholder="Enter Product Name" value="<%=singleProduct.productName%>">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="fname" class="col-sm-3 text-right control-label col-form-label">Description</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" name="description"
+                                            placeholder="Enter Product Description" value="<%=singleProduct.description%>">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="fname" class="col-sm-3 text-right control-label col-form-label">Price</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" name="price"
+                                            placeholder="Enter Price in Dollar ($)" value="<%=singleProduct.price%>">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                <label class="col-sm-3 text-right control-label col-form-label">Image Upload</label>
+                                <div class="col-md-9">
+                                    <div class="custom-file">
+                                        <input type="file" name="productImage" class="custom-file-input"
+                                            id="validatedCustomFile">
+                                        <label class="custom-file-label" for="validatedCustomFile">Choose
+                                            file...</label>
+                                        <div class="invalid-feedback">Example invalid custom file feedback</div>
+                                    </div>
+                                    <img src="/uploads/productImage/<%=singleProduct.productImage%>" width="70px" height="100px" alt="Product Image">
+                                </div>
+                                
+                            </div>
+
+                                <div class="form-group row">
+                                    <label for="fname" class="col-sm-3 text-right control-label col-form-label">Quantity</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" name="quantity"
+                                            placeholder="Enter Quantity" value="<%=singleProduct.quantity%>">
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group row">
+                                    <label for="fname"
+                                        class="col-sm-3 text-right control-label col-form-label">Category</label>
+                                    <div class="col-sm-9">
+                                        <select name="category" disabled>
+                                            <option value="">--- Select Category ---</option>
+                                            
+                                                <option value="<%=singleProduct.category._id%>" selected>
+                                                    <%=singleProduct.category.title%>
+                                                </option>
+                                               
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="fname"
+                                        class="col-sm-3 text-right control-label col-form-label">Sub Category</label>
+
+                                     <div class="col-sm-9">
+                                        <select name="subcategory" disabled>
+                                            <option value="">--- Select Sub Category ---</option>
+                                           
+                                                <option value="<%=singleProduct.subcategory._id%>" selected>
+                                                    <%=singleProduct.subcategory.subcategory%>
+                                                </option>
+                                                
+                                              
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="fname"
+                                        class="col-sm-3 text-right control-label col-form-label">Extra Category</label>
+
+                                     <div class="col-sm-9">
+                                        <select name="extraCategory" disabled>
+                                            <option value="">--- Select Extra Category ---</option>
+                                           
+                                                <option value="<%=singleProduct.extraCategory._id%>" selected>
+                                                    <%=singleProduct.extraCategory.extraCategory%>
+                                                </option>
+                                                
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="border-top">
+                                <div class="card-body col-sm-3 text-right ">
+                                    <input type="submit" value="Edit">
+                                </div>
+                            </div>
+                    </div>
+
+
+                    </form>
+                </div>
+
+
+
+            </div>
+
+        </div>
+        <!-- editor -->
+
+        <!-- ============================================================== -->
+        <!-- End PAge Content -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Right sidebar -->
+        <!-- ============================================================== -->
+        <!-- .right-sidebar -->
+        <!-- ============================================================== -->
+        <!-- End Right sidebar -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+
+    <%-include('../footer')%>
+
+    <!-- <script>
+        document.addEventListener('DOMContentLoaded',() => {
+            let category = document.querySelector('#category');
+            let subcategory = document.querySelector('#subcategory')
+
+            console.log(category)
+
+            category.addEventListener('change' , () => {
+                let categoryId = category.value
+                // console.log(categoryId)
+                subcategory.innerHTML = `<option>--- select subcategory ---</option>`
+                fetch(`/extraCategory/subcategory?category=${categoryId}`)
+                .then(res => res.json())
+                .then(data => {
+                    // console.log(data.subcategories)
+                    data.subcategories.forEach(value => {
+                        let option = document.createElement('option');
+                        option.value = value._id
+                        option.innerHTML = value.subcategory;
+                        subcategory.append(option);
+                    });
+                })
+                .catch(err => console.log(err));
+            })
+
+        })
+    </script> -->

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Blog</title>
+  <link rel="stylesheet" href="/css/add.css">
+</head>
+<body>
+
+  <header class="header">
+    <h1 class="logo">My Blog</h1>
+    <a href="/" class="btn">← Back</a>
+  </header>
+
+  <div class="form-container">
+    <h2>Add New Blog</h2>
+    <form action="/addBlog" method="post" enctype="multipart/form-data">
+      <input type="text" name="title" placeholder="Enter blog title" required>
+      <textarea name="description" placeholder="Enter blog description" required></textarea>
+      
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="type" value="technology"> Technology</label>
+        <label><input type="checkbox" name="type" value="weather"> Weather</label>
+        <label><input type="checkbox" name="type" value="history"> History</label>
+        <label><input type="checkbox" name="type" value="biology"> Biology</label>
+        <label><input type="checkbox" name="type" value="chemistry"> Chemistry</label>
+      </div>
+
+      <input type="file" name="image" required>
+      <button type="submit" class="btn">Submit</button>
+    </form>
+  </div>
+
+</body>
+</html>

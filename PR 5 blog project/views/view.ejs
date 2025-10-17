@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blogs</title>
+  <link rel="stylesheet" href="/css/view.css">
+</head>
+<body>
+
+  <header class="header">
+    <h1 class="logo">My Blog</h1>
+    <a href="/add" class="btn">+ Add Blog</a>
+  </header>
+
+  <section class="blog-list">
+    <% allBlog.map((val)=>{ %>
+      <div class="card">
+        <img src="<%=val.image%>" alt="">
+        <div class="card-content">
+          <ul class="tags">
+            <% val.type.map((t)=>{ %>
+              <li><%=t%></li>
+            <% }) %>
+          </ul>
+          <h2><%=val.title%></h2>
+          <p><%=val.description.substring(0,100)%>...</p>
+          <a href="/viewMore/<%=val.id%>" class="read-more">View More →</a>
+        </div>
+      </div>
+    <% }) %>
+  </section>
+
+</body>
+</html>

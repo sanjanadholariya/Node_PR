@@ -1,0 +1,126 @@
+<%-include('../header') %>
+    <!-- Remember to include jQuery :) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+
+    <!-- jQuery Modal -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css">
+
+    <!-- ============================================================== -->
+    <!-- Page wrapper  -->
+    <!-- ============================================================== -->
+    <div class="page-wrapper">
+        <!-- ============================================================== -->
+        <!-- Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <div class="page-breadcrumb">
+            <div class="row">
+                <div class="col-12 d-flex no-block align-items-center">
+                    <h4 class="page-title">Extra Category</h4>
+                    <div class="ml-auto text-right">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/admin">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Library</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Container fluid  -->
+        <!-- ============================================================== -->
+        <div class="container-fluid">
+            <!-- ============================================================== -->
+            <!-- Start Page Content -->
+            <!-- ============================================================== -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title m-b-0">Extra Category List</h5>
+                        </div>
+
+                        <!-- search -->
+
+                        <!-- <form class="form-inline" method="get" action="/subcategory/viewSubcategoryPage">
+                            <div class="input-group">
+                                <input type="text" name="search"
+                                    value="<%= typeof search !== 'undefined' ? search : '' %>" class="form-control"
+                                    placeholder="Search by Category or Subcategory  Name" style="min-width: 300px;">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="submit">Search</button>
+                                </div>
+
+                                <div class="col-md-2 d-grid">
+                                    <input class="btn btn-secondary" type="submit" value="Reset" name="reset">
+                                </div>
+                            </div>
+                        </form> -->
+
+
+
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Image</th>
+                                    <th scope="col">Category Name</th>
+                                    <th scope="col">Sub Category Name</th>
+                                    <th scope="col">Extra category Name</th>
+                                    <th scope="col">Action</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <%extraCategory.map((v,i)=>{%>
+                                    <tr>
+                                        <td>
+                                            <img src="/uploads/categoryImage/<%=v.category.categoryImage%>" width="50px"
+                                                height="50px" style="border-radius: 10%;" alt="">
+                                        </td>
+                                        <td>
+                                            <%=v.category.title%>
+                                        </td>
+                                        <td>
+                                            <%=v.subcategory.subcategory%>
+                                        </td>
+                                        <td>
+                                            <%=v.extraCategory%>
+                                        </td>
+                                        
+                                        <td>
+                                            <a href="/extraCategory/deleteExtraCategory/<%=v.id%>">
+                                                Delete
+                                            </a> ||
+                                            <a href="/extraCategory/editExtraCategoryPage/<%=v.id%>">
+                                                Edit
+                                            </a>
+
+
+                                        </td>
+                                    </tr>
+                                    <%})%>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Modal HTML embedded directly into document -->
+
+
+            <!-- Link to open the modal -->
+
+
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Container fluid  -->
+
+
+
+        <%-include('../footer')%>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Book</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css">
+</head>
+<body>
+  <%- include('header') %>
+
+  <div class="container-fluid mt-4">
+    <div class="row">
+      <!-- Sidebar -->
+      <div class="col-3">
+        <%- include('sidebar') %>
+      </div>
+
+      <!-- Form Section -->
+      <div class="col-9">
+        <div class="card shadow p-4">
+          <h3 class="mb-4 fw-bold">✏️ Edit Book</h3>
+
+          <form action="/update/<%= single.id %>" method="post" enctype="multipart/form-data" class="row g-3">
+
+            <!-- Title -->
+            <div class="col-md-6">
+              <label class="form-label fw-bold">📕 Book Title</label>
+              <input type="text" name="title" value="<%= single.title %>" class="form-control">
+            </div>
+
+            <!-- Author -->
+            <div class="col-md-6">
+              <label class="form-label fw-bold">✍️ Author</label>
+              <input type="text" name="author" value="<%= single.author %>" class="form-control">
+            </div>
+
+            <!-- Total -->
+            <div class="col-md-6">
+              <label class="form-label fw-bold">🔢 Total</label>
+              <input type="number" name="total" value="<%= single.total %>" class="form-control">
+            </div>
+
+            <!-- Image -->
+            <div class="col-md-6">
+              <label class="form-label fw-bold">🖼️ Book Image</label>
+              <input type="file" name="image" class="form-control mb-2">
+              <img src="<%= single.image %>" width="120" class="img-thumbnail">
+            </div>
+
+            <!-- Genre -->
+            <div class="col-12">
+              <label class="form-label fw-bold">🏷️ Genre</label><br>
+              <div class="form-check form-check-inline">
+                <input class="" type="checkbox" name="genre" value="Romance" <% if(single.genre.includes('Romance')){ %>checked <%}%>>
+                <label class="form-check-label">❤️ Romance</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="" type="checkbox" name="genre" value="Classic" <% if(single.genre.includes('Classic')){ %>checked <%}%>>
+                <label class="form-check-label">📜 Classic</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="" type="checkbox" name="genre" value="Fantasy" <% if(single.genre.includes('Fantasy')){ %>checked <%}%>>
+                <label class="form-check-label">🧚 Fantasy</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="" type="checkbox" name="genre" value="Fiction" <% if(single.genre.includes('Fiction')){ %>checked <%}%>>
+                <label class="form-check-label">📘 Fiction</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="" type="checkbox" name="genre" value="Dystopian" <% if(single.genre.includes('Dystopian')){ %>checked <%}%>>
+                <label class="form-check-label">🌍 Dystopian</label>
+              </div>
+            </div>
+
+            <!-- Description -->
+            <div class="col-12">
+              <label class="form-label fw-bold">📝 Description</label>
+              <textarea name="description" class="form-control"><%= single.description %></textarea>
+            </div>
+
+            <!-- Submit -->
+            <div class="col-12">
+              <button type="submit" class="btn btn-success">✅ Update</button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
